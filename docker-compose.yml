@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  profile:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      database_name: ${database_name}
+      database_user: ${database_user}
+      database_password: ${database_password}
+      database_host: ${database_host}
+      redis_host: ${redis_host}
+    ports:
+      - '4000:4000'
+    volumes:
+      - .:/app
